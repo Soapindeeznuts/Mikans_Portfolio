@@ -51,7 +51,7 @@
     audio.play();
 
     const img = document.createElement('img');
-    img.src = './website/Usagi.png';
+    img.src = "./images/website/Usagi.png";
     img.alt = 'Secret Clue';
     img.style.position = 'fixed';
     img.style.width = '100px';
