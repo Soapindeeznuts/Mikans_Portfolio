@@ -51,7 +51,7 @@
     audio.play();
 
     const img = document.createElement('img');
-    img.src = "./images/website/Usagi.png";
+    img.src = "https://static.wikia.nocookie.net/chiikawa/images/4/43/YahaUsagi.png/revision/latest/thumbnail/width/360/height/450?cb=20240709065537";
     img.alt = 'Secret Clue';
     img.style.position = 'fixed';
     img.style.width = '100px';
