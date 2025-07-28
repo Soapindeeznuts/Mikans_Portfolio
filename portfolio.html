@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌸 Mikan's Portfolio</title>
+
+  <!-- Tailwind Setup -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            plumtop: '#1C0F24',
+            orchid: '#3A1038',
+            mauverose: '#5E2D54',
+          }
+        }
+      }
+    }
+  </script>
+  
+
+  <!-- Fonts and Styles -->
+  <link rel="stylesheet" href="index.css" />
+  <script src="index.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-gradient-to-b from-pink-100 to-pink-300 text-gray-700 dark:bg-gradient-to-b dark:from-[#5E2D54] dark:via-[#3A1038] dark:to-[#1C0F24] scroll-smooth">
+
+  <!-- 🔄 Loading Screen -->
+  <div id="loader" class="fixed inset-0 bg-white/40 dark:bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 opacity-100 transition-opacity duration-5000 ease-in-out">
+    <img src="./images/website/ken.gif" alt="Loading..." class="w-32 h-32">
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('main-content').classList.remove('hidden');
+    }, 5000);
+  </script>
+
+  <div id="main-content" class="hidden">
+
+    <!-- Navbar -->
+    <header>
+      <nav class="py-6 bg-[#330b38] dark:bg-pink-100 shadow-md w-full">
+        <div class="max-w-6xl mx-auto px-2 flex justify-between items-center">
+          <ul class="flex space-x-4 md:space-x-8">
+            <li><a href="index.html" class="text-pink-300 hover:text-pink-700 NavBtn dark:text-pink-600">Home</a></li>
+            <li><a class="text-pink-500 hover:text-pink-700 NavBtn">Portfolio</a></li>
+            
+          <li><a onclick="redirectAbtMe()" class="text-pink-500 hover:text-pink-700 NavBtn">About Me</a></li>
+          <li><a href="#contact" class="text-pink-500 hover:text-pink-700 NavBtn">Contact</a></li>
+          </ul>
+          <div class="flex items-center">
+            <div class="container">
+              <span class="icon sun">☀️</span>
+              <label class="switch">
+                <input type="checkbox" id="darkToggle" onclick="toggleDarkMode()" />
+                <span class="slider round"></span>
+              </label>
+              <span class="icon moon">🌙</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--KANKAN-->
+    <!-- Floating container -->
+<div class="fixed bottom-4 right-4 z-50 flex flex-col items-end" id="kankan_container">
+  <!-- Character image -->
+  <img 
+    src="./images/website/kankan.png" 
+    alt="Kankan Image" 
+    id="kankan" 
+    class="opacity-50 w-20 cursor-pointer hover:opacity-100 transition-opacity duration-300" 
+    onclick="Dialogue()" 
+  />
+
+  <!-- Dialogue bubble -->
+  <div id="dialogue" class="bg-pink-600 text-white text-sm " style="font-family: silkscreen;"></div>
+</div>
+
+    <div id="tabs" class="max-w-6xl mx-auto mt-4 ">
+      <ul class="flex space-x-4">
+
+        <li class="mr-1">
+          <a 
+            onclick="toggleTab('artworks')"
+            class="
+              inline-block px-4 py-2
+              rounded-t-lg border border-gray-300 border-b-0
+              bg-pink-200 text-pink-700
+              hover:bg-pink-300
+              active-tab dark:bg-[#994f8a] dark:hover:bg-[#3A1038] dark:text-pink-200">
+            Artworks
+          </a>
+        </li>
+
+        <li class="mr-1">
+          <a 
+            onclick="toggleTab('edits')"
+            class="
+              inline-block px-4 py-2
+              rounded-t-lg border border-gray-300 border-b-0
+              bg-blue-200 text-blue-700 hover:bg-blue-300 dark:bg-[#002d66] dark:hover:bg-[#112254] dark:text-purple-200">
+            Edits
+          </a>
+        </li>
+
+        <li class="mr-1">
+          <a 
+            onclick="toggleTab('websites')"
+            class="
+              inline-block px-4 py-2
+              rounded-t-lg border border-gray-300 border-b-0
+              bg-purple-200 text-purple-700
+              hover:bg-purple-300
+              dark:bg-[#4b2c6f] dark:hover:bg-[#2a1a3f] dark:text-purple-200"
+            
+          >
+            Websites
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <section id="artworks" class="tab-content bg-gradient-to-b from-pink-200 to-pink-500 dark:from-[#994f8a] dark:to-[#3A1038] py-16 px-4">
+      <!-- Arts -->
+      <div class="art max-w-6xl mx-auto px-4 py-8">
+        <h1 class="art text-3xl text-pink-600 dark:text-pink-100 mx-auto ">Artworks</h1>
+
+        <!-- Personal Works -->
+        <h2 class="art text-l text-pink-700 dark:text-pink-100">Personal Works</h2>
+        <div class="art flex flex-wrap justify-center gap-8 mt-6">
+          <!-- Polaroid 1 -->
+          <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[-2deg] hover:-translate-y-1 transition active:scale-90 cursor-pointer artwork" id="highlight1">
+            <img src="./images/portfolio/Art/highlight1.2.png" alt="Fanart" class="rounded-sm mb-2" id="highlight1_img" />
+            <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">Fanart of Rinka of Phantom Siita</p>
+            <script>
+              function toggleDarkMode() {
+                const html = document.documentElement;
+                const img = document.getElementById('highlight1');
+
+                html.classList.toggle('dark');
+
+                const isDark = html.classList.contains('dark');
+                img.src = isDark
+                  ? './images/portfolio/Art/highlight1.png'
+                  : './images/portfolio/Art/highlight1.2.png';
+              }
+            </script>
+          </div>
+
+          <!-- Polaroid 2 -->
+          <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[3deg] hover:-translate-y-1 transition artwork" id="highlight2">
+            <img src="./images/portfolio/Art/highlight2.jpg" alt="Sunkissed" class="rounded-sm mb-2 h-25" id="highlight2_img" />
+            <p class="text-center font-semibold text-pink-600"></p>
+          </div>
+
+          <!-- Polaroid 3 -->
+          <div class="bg-white rounded-lg shadow-lg p-2 transform rotate-[1deg] hover:-translate-y-1 transition active:scale-90 cursor-pointer artwork" id="highlight3">
+            <img src="./images/portfolio/Art/highlight3.png" alt="Cute Cat" class="rounded-sm mb-2 " id="highlight3_img" />
+            <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">Graduation!!</p>
+          </div>
+
+          <!-- Polaroid 4 -->
+          <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[-2deg] hover:-translate-y-1 transition artwork" id="highlight4">
+            <img src="./images/portfolio/Art/highlight4.png" id="highlight4_img" alt="Cute Cat" class="rounded-sm mb-2" />
+            <p class="text-center font-semibold text-pink-600"></p>
+          </div>
+
+          <!-- Polaroid 5 -->
+          <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[4deg] hover:-translate-y-1 transition artwork" id="highlight5">
+            <img src="./images/portfolio/Art/highlight5.png" alt="Cute Cat" class="rounded-sm mb-2" id="highlight5_img" />
+          </div>
+
+          <!-- Polaroid 6 -->
+          <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[-3deg] hover:-translate-y-1 transition artwork" id="highlight6">
+            <img src="./images/portfolio/Art/highlight6.png" alt="Cute Cat" class="rounded-sm mb-2" id="highlight6_img" />
+            <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">Self Portrait 🌸</p>
+          </div>
+
+          <!-- Polaroid 7 -->
+          <div class="bg-white rounded-lg shadow-lg p-2 transform rotate-[-1deg] hover:-translate-y-1 transition artwork" id="highlight7">
+            <img src="./images/portfolio/Art/highlight7.jpg" alt="Cute Cat" class="rounded-sm mb-2" id="highlight7_img"/>
+            <p class="text-center font-semibold text-pink-600"></p>
+          </div>
+
+          <!-- Wrapper for Polaroid 8 and its button -->
+          <div class="flex flex-col items-center space-y-2">
+            <!-- Polaroid 8 -->
+            <div class="bg-white rounded-lg shadow-lg p-2 transform rotate-[-2deg] hover:-translate-y-1 transition duration-300 cursor-pointer artwork" id="highlight8">
+              <div class="rounded-sm overflow-hidden">
+                <img src="./images/portfolio/Art/highlight8.png" alt="Christmas Mood Chart" />
+              </div>
+              <p class="text-center font-semibold text-pink-600 dark:text-pink-400 mt-2 text-sm">Christmas Mood Chart 🎄</p>
+            </div>
+
+            <!-- View More Button -->
+            <button onclick="toggleModal('gallery_art')" class="text-l text-pink-600 hover:-translate-y-1 transition active:scale-95 artgal inline-block NavBtn dark:text-pink-200" style="font-family: silkscreen;">View more</button>
+
+            <!-- Modal Background -->
+            <div id="gallery_art" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+              <!-- Modal Content -->
+              <div class="bg-white dark:bg-zinc-800 p-4 rounded-lg max-w-5xl w-full overflow-y-auto max-h-[90vh] shadow-lg flex flex-col items-center justify-center absolute bottom-2 left-1/2 transform -translate-x-1/2 scroll-smooth scrollbar-thumb-pink-400 scrollbar-track-pink-200 scrollbar-thin">
+                <p class="text-center text-pink-600 dark:text-pink-400 mb-4 text-3xl scr font-semibold gallery_art">Other Works</p>
+
+                <!-- Grid Gallery -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 overflow-y-scroll h-[70vh] scrollbar-thin scrollbar-thumb-pink-400 scrollbar-track-pink-200 pr-2 gallery_art_content mt-10">
+                  <!-- Repeatable Image Card -->
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/-tj0bcq.jpg" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/1652775807317.png" class="w-full object-contain transition-transform duration-300 hover:scale-105"  />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/1660797844437.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 12_202506122307_40668.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 13_202507102355_34851.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 18_202506272034_31783.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 31 – Copy – Copy_202507111713_12938.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 31 – Copy_202507111712_55991.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 31_202507110818_08472.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 32_202507111704_53335.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 45_202507241830_48869.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 6_202506052346_38036.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 7_202506061539_32868(1).png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled 8_202506081643_04699.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled121_20230601090555.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled18_20250624160145.png" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <div class="rounded-lg overflow-visible flex items-center justify-center bg-white dark:bg-zinc-700 p-2">
+                    <img src="./images/portfolio/Art/Untitled28.gif" class="w-full object-contain transition-transform duration-300 hover:scale-105" />
+                  </div>
+                  <span onclick="toggleModal('gallery_art')" class="absolute right-3 top-2 text-gray-500 hover:text-pink-500 font-bold text-xl cursor-pointer">x</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="art max-w-6xl mx-auto px-4 py-8 artworks">
+          <h2 class="art text-l text-pink-700 dark:text-pink-300">Commissioned Works</h2>
+          <div class="art flex flex-wrap justify-center gap-6 mt-6">
+            <!-- Polaroid 1 -->
+            <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[-2deg] hover:-translate-y-1 transition artwork cursor-pointer">
+              <img src="./images/portfolio/Art/comms1.png" alt="1st ever commission" class="rounded-sm mb-2" id="comms1" />
+              <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">@Merui_14 on X</p>
+            </div>
+
+            <!-- Polaroid 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-2 transform rotate-[3deg] hover:-translate-y-1 transition artwork" id="comms2">
+              <img src="./images/portfolio/Art/comm2.png" alt="2nd comms" class ="rounded-sm mb-2"/>
+              <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">@Diva on Discord</p>
+            </div>
+
+            <!-- Polaroid 3 -->
+            <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[1deg] hover:-translate-y-1 transition artwork">
+              <img src="./images/portfolio/Art/comm3.png" alt="3rd comms" class="rounded-sm mb-2" />
+              <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">@Anoxi on X</p>
+            </div>
+
+            <!-- Polaroid 4 -->
+            <div class="bg-white rounded-lg shadow-lg w-60 p-2 transform rotate-[-2deg] hover:-translate-y-1 transition artwork">
+              <img src="./images/portfolio/Art/comm4.png" alt="4th comms" class="rounded-sm mb-2" />
+              <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">Commissioned by a friend ^^</p>
+            </div>
+
+            <!-- Polaroid 5 -->
+            <div class="bg-white rounded-lg shadow-lg  p-2 transform rotate-[-1deg] hover:-translate-y-1 transition artwork" id="comms5">
+              <img src="./images/portfolio/Art/comm5.png" alt="5th comms" class="rounded-sm mb-2" />
+              <p class="text-center font-semibold text-pink-600" style="font-family: silkscreen;">@Acustilla on X</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+ <!-- 🖼️ Edits Slideshow Section -->
+<section id="edits" class="tab-content hidden bg-gradient-to-b from-blue-200 to-blue-500 py-16 px-4 dark:from-[#002d66] dark:to-[#112254]">
+   <div class="edits max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-3xl text-blue-700 dark:text-purple-200 text-center font-bold mb-10">Edits / Public Materials</h1>
+  </div>
+
+  <div class="slideshow-container bg-white dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden mx-auto max-w-3xl h-[500px] relative flex items-center justify-center overflow-visible">
+
+    <!-- Slide 1 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">1 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/Blue Modern Professional Business Letterhead (A4).png" style="width: 100%;" alt="Letterhead" />
+      <div class="text">Business Letterhead (A4)</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded" style="width: 75%;">2 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/Calling card.png" alt="Calling Card" />
+      <div class="text">Calling Card</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">3 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/Expo Menu (1).png" alt="Expo Menu" />
+      <div class="text">Expo Menu</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">4 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/Expo Poster Tarpaulin.png" alt="Expo Poster" />
+      <div class="text">Expo Poster</div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">5 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/PixelBites’.png" alt="PixelBites Poster" />
+      <div class="text">PixelBites’ Poster</div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">6 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/Pixilart_App.png" alt="Pixilart App" />
+      <div class="text">Pixilart App UI</div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">7 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/POV Binagsakan ng activities bago mag exam.png" alt="Meme Poster" />
+      <div class="text">POV Meme Poster</div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">8 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/soph’s cookies.png" alt="Cookies Poster" />
+      <div class="text">Soph’s Cookies</div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">9 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/Swift docs (1).png" alt="Swift Docs" />
+      <div class="text">Swift Docs</div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="mySlides fade absolute inset-0 flex flex-col items-center justify-center">
+      <div class="numbertext absolute top-2 left-2 text-sm text-white bg-black/60 px-2 py-1 rounded">10 / 10</div>
+      <img class="edits_img_slide" src="./images/portfolio/Graphic Design - Pubmats/White Elegant Classic Minimalist Weekly Printable Calendar  (1).png" alt="Calendar" />
+      <div class="text">Printable Calendar</div>
+    </div>
+<div class="text-center mt-4">
+    <button class="prev text-black left-0" onclick="plusSlides(-1)">❮</button>
+    <button class="next text-black" onclick="plusSlides(1)">❯</button>
+  </div>
+  </div>
+
+  <!-- Dots -->
+  <div class="text-center mt-4">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+    <span class="dot" onclick="currentSlide(7)"></span>
+    <span class="dot" onclick="currentSlide(8)"></span>
+    <span class="dot" onclick="currentSlide(9)"></span>
+    <span class="dot" onclick="currentSlide(10)"></span>
+  </div>
+  
+  <div><br/></div>
+
+  <!-- Magazine Layout -->
+  <div class="magazine mx-auto">
+    <h1 class="text-3xl text-blue-700 dark:text-purple-200 text-center font-bold mb-10">Magazine Layout</h1>
+    <div class="rounded-lg shadow-lg mx-auto relative flex flex-wrap grid-cols-3 items-center justify-center overflow-visible">
+      <img src="./images/portfolio/Graphic Design - Pubmats/Final Magazine/1.png" alt="Magazine Page 1" class="mag_img" />
+      <img src="./images/portfolio/Graphic Design - Pubmats/Final Magazine/3.png" alt="Magazine Page 2" class="mag_img" />
+      <img src="./images/portfolio/Graphic Design - Pubmats/Final Magazine/5.png" alt="Magazine Page 3" class="mag_img" />
+      <img src="./images/portfolio/Graphic Design - Pubmats/Final Magazine/ARTICLE LYN.png" alt="Magazine Page 4" class="mag_img" />
+      <img src="./images/portfolio/Graphic Design - Pubmats/Final Magazine/ARTICLE PIA.png" alt="Magazine Page 5" class="mag_img" />
+      <img src="./images/portfolio/Graphic Design - Pubmats/Final Magazine/ARTICLE SHANE.png" alt="Magazine Page 6" class="mag_img" />
+    </div>
+  </div>
+
+    </section>
+
+    
+    <!-- Websites Section -->
+    <section id="websites" class="tab-content hidden bg-gradient-to-b from-purple-200 to-purple-500 py-16 px-4 dark:from-[#4b2c6f] dark:to-[#1C0F24]">
+      <div class="website max-w-6xl mx-auto px-4 py-8">
+        <h1 class="text-3xl text-purple-700 dark:text-purple-200 text-center font-bold mb-10">Websites</h2>
+          <br/>
+          <div class="flex flex-col items-center">
+             <h1 class="text-l text-purple-800 dark:text-purple-300 text-left mb-6">Student Event Tracker</h1>
+              <img src="./images/portfolio/set logo.png" alt="SET LOGO" class="w-20   rounded-lg shadow-lg" />
+            </div>
+       
+        <p class=" mb-6 text-m text-purple-800 dark:text-purple-200" style="font-family: silkscreen;">Role: Front-End Developer & UI/UX designer</p>
+        <p class=" mb-6 text-sm text-purple-700 dark:text-purple-200 " style="font-family: silkscreen;">A web application designed to keep students informed and organized. It features an interactive calendar, real-time announcements, and personalized reminders for school events, deadlines, and activities. With its user-friendly interface and responsive design, SET ensures students stay connected and never miss important dates.</p>
+        <div class="relative flex justify-center items-center w-full max-w-4xl mx-auto" style="height: 424px;">
+          <!-- SVG as background -->
+            <svg width="824" height="474" viewBox="0 0 824 474" xmlns="http://www.w3.org/2000/svg" class="absolute top-0 left-1/2 -translate-x-1/2 z-0 pointer-events-none" shape-rendering="crispEdges">
+            <rect x="24" y="24" width="800" height="450" fill="#a76986" />
+            <rect x="0" y="0" width="800" height="450" fill="#FADBE7" stroke="#EFBBD3" stroke-width="8" />
+            <rect x="8" y="8" width="784" height="72" fill="#F8CCE8" />
+            <rect x="24" y="32" width="20" height="20" fill="#F69DBB" />
+            <rect x="56" y="32" width="20" height="20" fill="#FFE29D" />
+            <rect x="88" y="32" width="20" height="20" fill="#B3E9C7" />
+            <text x="130" y="54" font-family="Press Start 2P" font-size="26" fill="#B06FA9">Demo</text>
+            <rect x="16" y="88" width="768" height="346" fill="#FFF0F5" />
+            </svg>
+          <!-- Video on top of SVG -->
+          <video class="absolute top-[88px] left-1/2 -translate-x-1/2 z-10 rounded-lg shadow-lg" width="768" height="296" controls>
+            <source src="./images/portfolio/SET DEMO 2025.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+     
+    </div>
+           
+      
+      </div>
+       
+       
+      </div>
+      </section>
+
+
+    <!-- Footer --> 
+     <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 text-center dark:bg-transparent dark:text-white">
+      <h2 class="text-3xl text-pink-500 font-semibold mb-6">💌 Contact Me</h2>
+      <p>Interested? Feel free to contact me!</p>
+
+      <div class="mt-6 mx-auto max-w-md grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
+        <a href="https://github.com/Soapindeeznuts" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">GitHub</a>
+        <a href="https://www.linkedin.com/in/sophia-peduca-27772b34b/" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">LinkedIn</a>
+        <a href="https://www.instagram.com/mikanyan.art/" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">Instagram</a>
+        <a href="https://x.com/SoapEYYY" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">Twitter</a>
+        <a href="https://vgen.co/soapymikan" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">VGen</a>
+        <a class="text-pink-500 hover:underline dark:text-pink-200">🌸</a>
+      </div>
+    <footer class="py-4 text-center text-sm text-pink-400 dark:bg-transparent">
+      <br/>
+      © 2025 Made by Yours Truly - Sophia 🌸
+    </footer>
+  </div><script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+
+    if (hash) {
+      // Optional: hide all tab contents first
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.add('hidden');
+      });
+
+      // Then show the one matching the hash
+      const target = document.querySelector(hash);
+      if (target) {
+        target.classList.remove('hidden');
+        target.scrollIntoView({ behavior: 'smooth' }); // optional
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

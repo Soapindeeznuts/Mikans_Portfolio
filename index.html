@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌸 Mikan's Portfolio</title>
+
+  <!-- Tailwind Setup -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            plumtop: '#1C0F24',
+            orchid: '#3A1038',
+            mauverose: '#5E2D54',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts and Styles -->
+  <link rel="stylesheet" href="index.css" />
+  <script src="index.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-gradient-to-b from-pink-100 to-pink-300 text-gray-700 dark:bg-gradient-to-b dark:from-[#5E2D54] dark:via-[#3A1038] dark:to-[#1C0F24] scroll-smooth">
+
+  <!-- 🔄 Loading Screen -->
+  <div id="loader" class="fixed inset-0 bg-white/40 dark:bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 opacity-100 transition-opacity duration-5000 ease-in-out">
+    <img src="./images/website/ken.gif" alt="Loading..." class="w-32 h-32">
+  </div>
+
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('main-content').classList.remove('hidden');
+    }, 5000);
+    
+    </script>
+<div id="main-content" class="hidden">
+
+  <!--KANKAN-->
+    <!-- Floating container -->
+<div class="fixed bottom-4 right-4 z-50 flex flex-col items-end" id="kankan_container">
+  <!-- Character image -->
+  <img 
+    src="./images/website/kankan.png" 
+    alt="Kankan Image" 
+    id="kankan" 
+    class="opacity-50 w-20 cursor-pointer hover:opacity-100 transition-opacity duration-300" 
+    onclick="Dialogue()" 
+  />
+
+  <!-- Dialogue bubble -->
+  <div id="dialogue" class="bg-pink-600 text-white text-sm " style="font-family: silkscreen;"></div>
+</div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="py-6 bg-[#330b38] dark:bg-pink-100 shadow-md w-full">
+      <div class="max-w-6xl mx-auto px-2 flex justify-between items-center">
+        <ul class="flex space-x-4 md:space-x-8">
+          <li><a href="#home" class="text-pink-300 hover:text-pink-700 NavBtn dark:text-pink-600">Home</a></li>
+          <li><a href="portfolio.html" class="text-pink-500 hover:text-pink-700 NavBtn">Portfolio</a></li>
+          <li><a href="#about" class="text-pink-500 hover:text-pink-700 NavBtn scroll-smooth">About Me</a></li>
+          <li><a href="#contact" class="text-pink-500 hover:text-pink-700 NavBtn scroll-smooth">Contact</a></li>
+        </ul>
+        <div class="flex items-center">
+          <div class="container">
+            <span class="icon sun">☀️</span>
+            <label class="switch">
+              <input type="checkbox" id="darkToggle" onclick="toggleDarkMode()" />
+              <span class="slider round"></span>
+            </label>
+            <span class="icon moon">🌙</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+ <div class="absolute top-0 left-0 w-full h-full bg-[url('./images/website/star.gif')] bg-repeat bg-[length:150px_150px] opacity-30 -z-10 pointer-events-none"></div>
+
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4 mx-0 dark:text-white">
+
+    <img src="./images/website/PfP.png" alt="Profile" class="rounded-full border-4 border-pink-300 shadow-md mb-4 ImgProfile" onclick="SecretNoClue()" />
+    <h1 class="text-4xl text-pink-600 mb-2 name">Hi, I'm Soph! 💖</h1>
+    <br />
+    <p class="text-xs max-w-6xl max-h-l mx-auto z-3">
+      Front-End Web Developer ✨<br />
+      1st Year Computer Science Student 🎓<br />
+      Digital Artist 🎨
+    </p>
+    <br />
+    <!-- View Works Button -->
+    <button class="Btn mt-4 z-5" href="portfolio.html">
+      <svg width="160" height="48" viewBox="0 0 160 48" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+        <rect x="0" y="0" width="160" height="48" fill="#FADBE7" stroke="#EFBBD3" stroke-width="4" />
+        <rect x="4" y="4" width="152" height="40" fill="#FFF0F5" />
+        <text x="25" y="30" font-family="Press Start 2P" font-size="11" fill="#B06FA9"><a href="portfolio.html">View Works</a></text>
+      </svg>
+    </button>
+  </section>
+
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-20 bg-transparent px-4 dark:bg-transparent scroll-smooth">
+  <h2 class="text-3xl text-center text-pink-500 font-semibold mb-12 relative overflow-hidden h-48">
+  <!-- Full Resolution Cloud Background 
+  <img src="./images/website/bg_clouds.gif" 
+       alt="Clouds" 
+       class="absolute inset-0 w-full h-full object-cover object-center bg_clouds"
+       style="image-rendering: pixelated;">-->
+  
+  <!-- Text with transparent background -->
+  <div class="relative z-10 h-full flex items-center justify-center">
+    <span class="px-4 py-2 text-shadow-lg shadow-pink-900/50 Title_Prj">
+      💼 My Projects
+    </span>
+  </div>
+</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+      <!-- Project Card 1 -->
+      <div onclick="redirectWebsite()">
+        <svg width="412" height="212" viewBox="0 0 412 212" xmlns="http://www.w3.org/2000/svg" class="Prj_Crd" shape-rendering="crispEdges">
+          <rect x="12" y="12" width="400" height="200" fill="#a76986" />
+          <rect x="0" y="0" width="400" height="200" fill="#FADBE7" stroke="#EFBBD3" stroke-width="4" />
+          <rect x="4" y="4" width="392" height="36" fill="#F8CCE8" />
+          <rect x="12" y="16" width="10" height="10" fill="#F69DBB" />
+          <rect x="28" y="16" width="10" height="10" fill="#FFE29D" />
+          <rect x="44" y="16" width="10" height="10" fill="#B3E9C7" />
+          <text x="65" y="27" font-family="Press Start 2P" font-size="13" fill="#B06FA9">Student Event Tracker</text>
+          <rect x="8" y="44" width="384" height="148" fill="#FFF0F5" />
+          <text x="24" y="80" font-family="silkscreen" font-size="12" fill="#B06FA9">🌸 A calendar website designed for students</text>
+          <text x="24" y="100" font-family="silkscreen" font-size="12" fill="#B06FA9">in STI Global City for research purposes.</text>
+          <text x="24" y="130" font-family="silkscreen" font-size="12" fill="#B06FA9">Role: Front-End</text>
+          <text x="160" y="160" font-family="silkscreen" font-size="12" fill="#B06FA9" >Click me for more details ></text>
+        </svg>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div onclick="redirectEdits()">
+        <svg width="412" height="212" viewBox="0 0 412 212" xmlns="http://www.w3.org/2000/svg" class="Prj_Crd" shape-rendering="crispEdges">
+          <rect x="12" y="12" width="400" height="200" fill="#a76986" />
+          <rect x="0" y="0" width="400" height="200" fill="#FADBE7" stroke="#EFBBD3" stroke-width="4" />
+          <rect x="4" y="4" width="392" height="36" fill="#F8CCE8" />
+          <rect x="12" y="16" width="10" height="10" fill="#F69DBB" />
+          <rect x="28" y="16" width="10" height="10" fill="#FFE29D" />
+          <rect x="44" y="16" width="10" height="10" fill="#B3E9C7" />
+          <text x="65" y="27" font-family="Press Start 2P" font-size="11" fill="#B06FA9">Magazine Layout and Design</text>
+          <rect x="8" y="44" width="384" height="148" fill="#FFF0F5" />
+          <text x="24" y="80" font-family="silkscreen" font-size="12" fill="#B06FA9">Magazine made for school purposes</text>
+          <text x="24" y="100" font-family="silkscreen" font-size="12" fill="#B06FA9">Created with aesthetics and different styles</text>
+          <text x="24" y="130" font-family="silkscreen" font-size="12" fill="#B06FA9">Role: Designer</text>
+          <text x="160" y="160" font-family="silkscreen" font-size="12" fill="#B06FA9">Click me for more details ></text>
+        </svg>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div>
+        <svg width="412" height="212" viewBox="0 0 412 212" xmlns="http://www.w3.org/2000/svg" class="Prj_Crd" shape-rendering="crispEdges">
+          <rect x="12" y="12" width="400" height="200" fill="#a76986" />
+          <rect x="0" y="0" width="400" height="200" fill="#FADBE7" stroke="#EFBBD3" stroke-width="4" />
+          <rect x="4" y="4" width="392" height="36" fill="#F8CCE8" />
+          <rect x="12" y="16" width="10" height="10" fill="#F69DBB" />
+          <rect x="28" y="16" width="10" height="10" fill="#FFE29D" />
+          <rect x="44" y="16" width="10" height="10" fill="#B3E9C7" />
+          <text x="65" y="27" font-family="Press Start 2P" font-size="13" fill="#B06FA9">Art Portfolio</text>
+          <rect x="8" y="44" width="384" height="148" fill="#FFF0F5" />
+          <text x="24" y="80" font-family="silkscreen" font-size="12" fill="#B06FA9">🎨 A showcase of my digital artwork and</text>
+          <text x="24" y="100" font-family="silkscreen" font-size="12" fill="#B06FA9">projects and commissions!</text>
+          <text x="24" y="130" font-family="silkscreen" font-size="12" fill="#B06FA9">Role: Designer/Developer</text>
+          <text x="160" y="160" font-family="silkscreen" font-size="12" fill="#B06FA9"> ></text>
+        </svg>
+      </div>
+    </div>
+
+   <div class="flex justify-end w-full mt-8">
+  <a href="portfolio.html" class="inline-block text-pink-500 dark:text-pink-500 NavBtn w-fit ViewPrj">
+    View All Projects >
+  </a>
+</div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 bg-transparent px-4 text-center dark:bg-transparent dark:text-white scroll-smooth">
+    <h2 class="text-4xl text-pink-500 dark:text-pink-500 mb-6">💫 About Me</h2>
+    <p class="max-w-2xl text-m mx-auto" style="font-family: 'silkscreen';">
+      I'm currently a college student, studying Computer Science. I love bringing websites to life with a soft aesthetic and playful UX. In my free time, I enjoy designing, baking, and digital arts 🎨
+    </p>
+
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-1 tbl0" >
+        <!-- Skills-->
+            <div class="tbl flex flex-col items-center">
+          <h1 class="text-2xl text-pink-500 dark:text-pink-500 mt-8 mb-4">Skills 🌸</h1>
+          <table class="table-auto border-collapse border border-purple-400 dark:border-pink-300 mx-auto mt-10 text-center">
+            <tbody>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">HTML</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">CSS</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">Digital art</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">Graphic Design - Canva</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">Punctuality</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+        </tbody>
+          </table>
+            </div>
+
+  
+
+      <!-- Languages Section -->
+        <div class="Lang_tbl flex flex-col items-center">
+      <h1 class="text-2xl text-pink-500 dark:text-pink-500 mt-8 mb-4">Languages 🌸</h1>
+      <table class="table-auto border-collapse border border-purple-800 dark:border-pink-300 mx-auto mt-10 text-center">
+        <tbody>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">English</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">Filipino / Tagalog</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <!-- Coding Languages Section -->
+       <div class="CodingLang_tbl flex flex-col items-center md:col-span-2">
+      <h1 class="text-2xl text-pink-500 dark:text-pink-500 mt-8 mb-4"> Coding Languages / Frameworks 🌸</h1>
+      <table class="table-auto border-collapse border border-purple-800 dark:border-pink-300 mx-auto mt-10 text-center">
+        <tbody>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">HTML</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">CSS</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">JavaScript</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">C#</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">Java</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">SQL</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">Android Studio</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">.NET Maui</td>
+            <td class="border border-purple-800 dark:border-pink-300 px-4 py-2">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+        
+      </div> 
+       <div class="mt-8 max-w-2xl mx-auto">
+            <p class="text-sm text-purple-800 dark:text-gray-100">
+              I'm always eager to learn new skills and improve my knowledge. If you have any suggestions or want to collaborate, feel free to reach out!
+            </p>
+          </div>
+        </div>
+        </section>
+
+
+
+
+
+
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20  px-4 text-center dark:bg-transparent dark:text-white">
+    <h2 class="text-3xl text-pink-500 font-semibold mb-6">💌 Contact Me</h2>
+    <p>Interested? Feel free to contact me!</p>
+
+    <div class="mt-6 mx-auto max-w-md grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center">
+  <a href="https://github.com/Soapindeeznuts" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">GitHub</a>
+  <a href="https://www.linkedin.com/in/sophia-peduca-27772b34b/" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">LinkedIn</a>
+  <a href="https://www.instagram.com/mikanyan.art/" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">Instagram</a>
+  <a href="https://x.com/SoapEYYY" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">Twitter</a>
+  <a href="https://vgen.co/soapymikan" target="_blank" class="text-pink-500 hover:underline dark:text-pink-200">VGen</a>
+  <a  class="text-pink-500 hover:underline dark:text-pink-200">🌸</a>
+</div>
+
+   
+
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center text-sm text-pink-400  dark:bg-transparent">
+    
+
+ <br/>
+    © 2025 Made by Yours Truly - Sophia  🌸
+  </footer>
+</div>
+<script src="index.js" defer></script>
+
+</body>
+</html>
