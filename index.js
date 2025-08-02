@@ -236,9 +236,12 @@ function showSlides(n) {
   function Dialogue() {
   let txt;
   if (confirm("HALLO HOOMAN ARE YOU INTERESTED IN COMMISSIONING THIS POOR ARTIST????")) {
-    txt = "Thank you oh kind soul :D"
+    setTimeout(() =>{ 
+    txt = "Thank you oh kind soul :D"}, 2500);
+			txt =  " I'll show u where to contact me C:" ;
+    
     setTimeout(() => {
-    window.open('https://forms.gle/KsX9a2DEzjRLGUsWA', '_blank');
+    window.open('https://x.com/SoapEYYY?t=CgPtFgBI7-O9P_WeS9QdXA&s=09', '_blank');
   }, 2500); 
   } else {
     txt = "Alrighty then, I guess I'll just keep making art for myself :(";
