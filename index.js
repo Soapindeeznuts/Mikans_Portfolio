@@ -34,49 +34,36 @@
   });
 
   // 🐰 Secret No Clue thingy
-  function SecretNoClue() {
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
-    const soundList = [
-      './audio/usagi 1.mp3',
-      './audio/usagi 2.mp3',
-      './audio/usagi 3.mp3',
-      './audio/usagi 4.mp3',
-      './audio/usagi 5.mp3',
-      './audio/usagi 6.mp3',
-      './audio/usagi 7.mp3',
-      './audio/usagi 8.mp3',
-    ];
-    const randomSound = soundList[Math.floor(Math.random() * soundList.length)];
-    const audio = new Audio(randomSound);
-    audio.play();
+ function SecretNoClue() {
+  // ... rest of your code ...
+  const img = document.createElement('img');
+  img.src = "https://static.wikia.nocookie.net/chiikawa/images/4/43/YahaUsagi.png/revision/latest/thumbnail/width/360/height/450?cb=20240709065537";
+  img.alt = 'Secret Clue';
+  img.style.position = 'fixed';
+  img.style.width = '100px';
+  img.style.height = '100px'; // or adjust as needed
+  img.style.zIndex = '9999';
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+  const imgWidth = 100, imgHeight = 100;
+  const randomX = Math.floor(Math.random() * (screenWidth - imgWidth));
+  const randomY = Math.floor(Math.random() * (screenHeight - imgHeight));
+  img.style.left = `${randomX}px`;
+  img.style.top = `${randomY}px`;
+  img.style.opacity = '0';
+  img.style.transition = 'opacity 0.4s ease';
 
-    const img = document.createElement('img');
-    img.src = "https://static.wikia.nocookie.net/chiikawa/images/4/43/YahaUsagi.png/revision/latest/thumbnail/width/360/height/450?cb=20240709065537";
-    img.alt = 'Secret Clue';
-    img.style.position = 'fixed';
-    img.style.width = '100px';
-    img.style.zIndex = '50';
+  document.body.appendChild(img);
 
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-    const randomX = Math.floor(Math.random() * (screenWidth - 60));
-    const randomY = Math.floor(Math.random() * (screenHeight - 60));
+  requestAnimationFrame(() => {
+    img.style.opacity = '1';
+  });
 
-    img.style.left = `${randomX}px`;
-    img.style.top = `${randomY}px`;
+  setTimeout(() => {
     img.style.opacity = '0';
-    img.style.transition = 'opacity 0.4s ease';
-    setTimeout(() => (img.style.opacity = '1'), 10);
-
-    document.body.appendChild(img);
-
-    setTimeout(() => {
-      img.style.opacity = '0';
-      setTimeout(() => img.remove(), 400);
-    }, 3000);
-
-    console.log(`Secret ${randomNumber} at (${randomX}, ${randomY}) — playing: ${randomSound}`);
-  }
+    setTimeout(() => img.remove(), 400);
+  }, 3000);
+}
 
    function toggleModal(id) {
       const modal = document.getElementById(id);
@@ -254,4 +241,5 @@ setTimeout(() => {
 }, 5000); // 5000 milliseconds = 5 seconds
 
 }
+
 
