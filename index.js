@@ -54,10 +54,6 @@ window.onload = () => {
 
     const img = document.createElement('img');
     img.src = "Soapindeeznuts/Mikans_Portfolio/images/website/Usagi.png";
-    img.alt = 'Secret Clue';
-    img.style.position = 'fixed';
-    img.style.width = '100px';
-    img.style.zIndex = '50';
 
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
@@ -94,8 +90,8 @@ window.onload = () => {
 
     const isDark = html.classList.contains('dark');
     img.src = isDark
-      ? './images/art/highlight1.png'
-      : './images/art/highlight1.2.png';
+      ? 'Soapindeeznuts/Mikans_Portfolio/images/art/highlight1.png'
+      : 'Soapindeeznuts/Mikans_Portfolio/images/art/highlight1.2.png';
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
