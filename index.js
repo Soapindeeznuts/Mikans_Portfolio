@@ -241,7 +241,7 @@ function showSlides(n) {
 			txt =  " I'll show u where to contact me C:" ;
     
     setTimeout(() => {
-    window.open('https://x.com/SoapEYYY?t=CgPtFgBI7-O9P_WeS9QdXA&s=09', '_blank');
+    window.open('https://x.com/Mikanyan_art', '_blank');
   }, 2500); 
   } else {
     txt = "Alrighty then, I guess I'll just keep making art for myself :(";
@@ -254,3 +254,4 @@ setTimeout(() => {
 }, 5000); // 5000 milliseconds = 5 seconds
 
 }
+
