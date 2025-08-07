@@ -17,21 +17,23 @@
     initDarkMode();
 
     // ⏳ Loader logic
-    const loader = document.getElementById('loader');
-    const main = document.getElementById('main-content');
+   // ⏳ Loader logic
+window.onload = () => {
+  const loader = document.getElementById('loader');
+  const main = document.getElementById('main-content');
 
-    // Add tailwind transition classes
-    loader.classList.add('transition-opacity', 'duration-500', 'ease-in-out');
+  // Add tailwind transition classes
+  loader.classList.add('transition-opacity', 'duration-500', 'ease-in-out');
 
-    // Fade out loader after short delay
-    setTimeout(() => {
-      loader.classList.add('opacity-0', 'pointer-events-none');
-      setTimeout(() => {
-        loader.classList.add('hidden');
-        main.classList.remove('hidden');
-      }, 500); // Wait for fade-out to finish
-    }, 300); // Optional slight delay for effect
-  });
+  // Fade out loader when everything is fully loaded
+  loader.classList.add('opacity-0', 'pointer-events-none');
+
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    main.classList.remove('hidden');
+  }, 500); // Wait for fade-out to finish
+};
+
 
   // 🐰 Secret No Clue thingy
  function SecretNoClue() {
