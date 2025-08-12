@@ -17,26 +17,24 @@
     initDarkMode();
 
     // ⏳ Loader logic
-   // ⏳ Loader logic
-window.onload = () => {
-  const loader = document.getElementById('loader');
-  const main = document.getElementById('main-content');
+    const loader = document.getElementById('loader');
+    const main = document.getElementById('main-content');
 
-  // Add tailwind transition classes
-  loader.classList.add('transition-opacity', 'duration-500', 'ease-in-out');
+    // Add tailwind transition classes
+    loader.classList.add('transition-opacity', 'duration-500', 'ease-in-out');
 
-  // Fade out loader when everything is fully loaded
-  loader.classList.add('opacity-0', 'pointer-events-none');
-
-  setTimeout(() => {
-    loader.classList.add('hidden');
-    main.classList.remove('hidden');
-  }, 500); // Wait for fade-out to finish
-};
-
+    // Fade out loader after short delay
+    setTimeout(() => {
+      loader.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        main.classList.remove('hidden');
+      }, 500); // Wait for fade-out to finish
+    }, 300); // Optional slight delay for effect
+  });
 
   // 🐰 Secret No Clue thingy
- function SecretNoClue() {
+  function SecretNoClue() {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
     const soundList = [
       './audio/usagi 1.mp3',
@@ -53,7 +51,11 @@ window.onload = () => {
     audio.play();
 
     const img = document.createElement('img');
-    img.src = "Soapindeeznuts/Mikans_Portfolio/images/website/Usagi.png";
+    img.src = './images/website/usagi.png';
+    img.alt = 'Secret Clue';
+    img.style.position = 'fixed';
+    img.style.width = '100px';
+    img.style.zIndex = '50';
 
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
@@ -90,8 +92,8 @@ window.onload = () => {
 
     const isDark = html.classList.contains('dark');
     img.src = isDark
-      ? 'Soapindeeznuts/Mikans_Portfolio/images/art/highlight1.png'
-      : 'Soapindeeznuts/Mikans_Portfolio/images/art/highlight1.2.png';
+      ? './images/portfolio/Art/highlight1.png'
+      : './images/portfolio/Art/highlight1.2.png';
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -230,8 +232,7 @@ function showSlides(n) {
     }
   });
 
-  // KAN KAN 
-  function Dialogue() {
+   function Dialogue() {
   let txt;
   if (confirm("HALLO HOOMAN ARE YOU INTERESTED IN COMMISSIONING THIS POOR ARTIST????")) {
     setTimeout(() =>{ 
@@ -252,5 +253,4 @@ setTimeout(() => {
 }, 5000); // 5000 milliseconds = 5 seconds
 
 }
-
 
